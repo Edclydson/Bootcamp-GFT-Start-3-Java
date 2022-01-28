@@ -37,7 +37,7 @@ class Operacao
         banco.put(numeroconta, informacoesClientes.stream().toList());
         System.out.println("Bem vindo ao Banco GFT,"+nome+"\n");
         System.out.println("O numero da sua conta é: "+numeroconta+" guarde bem esse numero!");
-        System.out.println("Sua conta foi criada! Agora você pode acessa-la :)");
+        System.out.println("Sua conta foi criada! Agora você pode acessa-la :)\n");
         informacoesClientes.clear();
     }
 
@@ -71,11 +71,11 @@ class Operacao
             consultaCliente.add(banco.get(acessarnumeroconta));
             if(consultaCliente.get(0).get(3).equals(acessarnumeroconta) && consultaCliente.get(0).get(5).equals(acessarsenha))
             {
-                System.out.println("Cliente possui cadastro");
+                System.out.println("Cliente possui cadastro\n");
                 menuoperacao(String.valueOf(consultaCliente.get(0).get(0)),String.valueOf(consultaCliente.get(0).get(3)));
                 consultaCliente.clear();
-            }else{System.out.println("Cliente não cadastrado");}
-        }else{System.out.println("Cliente não cadastrado");}
+            }else{System.out.println("Cliente não cadastrado\n");}
+        }else{System.out.println("Cliente não cadastrado\n");}
         consultaCliente.clear();
     }catch(ArrayIndexOutOfBoundsException e){}
 }
@@ -89,7 +89,7 @@ class Operacao
             case "2":{depositar(numerocontacliente,Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor do deposito: R$")));break;}
             case "3":{transferir(numerocontacliente,JOptionPane.showInputDialog(null, "Digite o numero da conta de destino:"),Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor da transferencia: R$")));break;}
             case "4":{extrato();break;}
-            case "5":{System.out.println("Sessão finalizada"); break;}
+            case "5":{System.out.println("Sessão finalizada\n"); break;}
             default:{}
         }
             consultaCliente.clear();   
@@ -99,7 +99,7 @@ class Operacao
     {
         double saldocontacliente = Double.parseDouble(String.valueOf(consultaCliente.get(0).get(4)));
         if(valordosaque<=saldocontacliente){
-            System.out.println("Transação autorizada");
+            System.out.println("Transação autorizada\n");
             informacoesClientes.clear();
             informacoesClientes.add(String.valueOf(consultaCliente.get(0).get(0)));
             informacoesClientes.add(String.valueOf(consultaCliente.get(0).get(1)));
@@ -110,7 +110,7 @@ class Operacao
             consultaCliente.clear();
             consultaCliente.add(informacoesClientes.stream().toList());
             banco.replace(numeroconta, banco.get(numeroconta), consultaCliente);}
-        else{System.out.println("Saldo insuficiente");}
+        else{System.out.println("Saldo insuficiente\n");}
     }
 
     public static void depositar(String numeroconta,double valordodeposito)
@@ -126,18 +126,18 @@ class Operacao
         consultaCliente.clear();
         consultaCliente.add(informacoesClientes.stream().toList());
         banco.replace(numeroconta, banco.get(numeroconta), consultaCliente);
-        System.out.println("Transação realizada com sucesso");
+        System.out.println("Transação realizada com sucesso\n");
     }
 
     public static void transferir(String numerocontaorigem,String numerocontadestino,double valordatransferencia)
     {
     if(numerocontaorigem.equals(numerocontadestino))
     {
-        System.out.println("Você não pode transferir para você mesmo!");
+        System.out.println("Você não pode transferir para você mesmo!\n");
     }
     else{
         double saldocontaclienteorigem = Double.parseDouble(String.valueOf(consultaCliente.get(0).get(4)));
-        if(saldocontaclienteorigem==0 || saldocontaclienteorigem<valordatransferencia){System.out.println("Saldo insuficiente");}
+        if(saldocontaclienteorigem==0 || saldocontaclienteorigem<valordatransferencia){System.out.println("Saldo insuficiente\n");}
         else
         {
                 //OPERACAO NA CONTA ORIGEM
@@ -165,9 +165,7 @@ class Operacao
                 consultaCliente.clear();
                 consultaCliente.add(informacoesClientes.stream().toList());
                 banco.replace(numerocontadestino, banco.get(numerocontadestino),consultaCliente);
-                System.out.println("Transação realizada com sucesso");
-                System.out.println("Saldo conta origem "+banco.get(numerocontaorigem));
-                System.out.println("Saldo conta destino "+banco.get(numerocontadestino));
+                System.out.println("Transação realizada com sucesso\n");
             }
         }
     }
