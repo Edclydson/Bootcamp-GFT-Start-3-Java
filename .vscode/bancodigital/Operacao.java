@@ -10,6 +10,11 @@ import java.util.Random;
 
 ///ORDEM QUE INFORMAÇOES DO CLIENTE SAO GUARDADAS {NOME,CPF,TIPODACONTA,NUMERODACONTA,SALDO,SENHA}
 
+/**
+ * @author:EDCLYDSON SOUSA
+ * 
+ * 
+ */
 class Operacao
 {
     static Random rand = new Random();
