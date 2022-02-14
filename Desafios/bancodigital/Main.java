@@ -9,7 +9,6 @@ public class Main {
           
         Operacao.cadastrarcliente("Edclydson","6548484898", "1234", "Conta Corrente", "101933", 10000);
         String menubanco;
-        //System.out.println(Operacao.informacoesClientes.get(0));//Operacao.banco.values().toString()
         while(true)
         {
             try
